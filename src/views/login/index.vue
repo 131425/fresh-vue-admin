@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
-      <h3 class="title">vue-element-admin</h3>
+      <h3 class="title">后台管理系统</h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -12,14 +12,11 @@
         <span class="svg-container">
           <svg-icon icon-class="password"></svg-icon>
         </span>
-        <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="password"></el-input>
+        <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password"></el-input>
           <span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin">
-          Sign in
-        </el-button>
+        <el-button type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin">立即登录</el-button>
       </el-form-item>
       <div class="tips">
         <span style="margin-right:20px;">username: admin</span>
@@ -31,6 +28,7 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
+import login_bg from '@/assets/login_bg.jpg'
 
 export default {
   name: 'login',
@@ -65,7 +63,7 @@ export default {
   methods: {
     showPwd() {
       if (this.pwdType === 'password') {
-        this.pwdType = ''
+        this.pwdType = 'text'
       } else {
         this.pwdType = 'password'
       }
@@ -132,14 +130,14 @@ $light_gray:#eee;
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: $bg;
+  background: url(~@/assets/login_bg.jpg);
   .login-form {
     position: absolute;
     left: 0;
     right: 0;
     width: 520px;
     padding: 35px 35px 15px 35px;
-    margin: 120px auto;
+    margin: 200px auto;
   }
   .tips {
     font-size: 14px;
