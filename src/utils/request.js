@@ -25,12 +25,12 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
   /**
-  * code为非20000是抛错 可结合自己业务进行修改
+  * code为非0是抛错 
   */
     const res = response.data
     if (res.code !== 0) {
       Message({
-        message: res.msg,
+        message: res.msg || '404请求地址不存在',
         type: 'error',
         duration: 5 * 1000
       })
@@ -55,7 +55,7 @@ service.interceptors.response.use(
   error => {
     console.log('err' + error)// for debug
     Message({
-      message: error.message,
+      message: error.msg,
       type: 'error',
       duration: 5 * 1000
     })

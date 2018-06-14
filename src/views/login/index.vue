@@ -20,7 +20,7 @@
       </el-form-item>
       <div class="tips">
         <span style="margin-right:20px;">username: admin</span>
-        <span> password: admin</span>
+        <span> password: 123456</span>
       </div>
     </el-form>
   </div>
@@ -28,7 +28,6 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
-import login_bg from '@/assets/login_bg.jpg'
 
 export default {
   name: 'login',
@@ -50,7 +49,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: 'admin'
+        password: '123456'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -131,13 +130,14 @@ $light_gray:#eee;
   height: 100%;
   width: 100%;
   background: url(~@/assets/login_bg.jpg);
+  background-size: 100%;
   .login-form {
     position: absolute;
     left: 0;
     right: 0;
     width: 520px;
     padding: 35px 35px 15px 35px;
-    margin: 200px auto;
+    margin: 120px auto;
   }
   .tips {
     font-size: 14px;

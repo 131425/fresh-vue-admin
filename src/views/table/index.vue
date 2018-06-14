@@ -56,7 +56,7 @@ export default {
       return statusMap[status]
     }
   },
-  created() {
+  mounted() {
     this.fetchData()
   },
   methods: {
